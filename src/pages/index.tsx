@@ -13,8 +13,8 @@ export default function Home() {
           <Image className="h-12 w-12" src="/user.jpeg" width="60" height="60" alt="User Logo" />
         </div>
         <div>
-          <div className="text-xl font-medium text-black">Simone</div>
-          <p className="text-gray-500">Welcome to this work in progress</p>
+          <div className="text-xl font-medium text-black">Hi</div>
+          <p className="text-gray-500">Welcome to my personal website</p>
         </div>
       </div>
     </>
