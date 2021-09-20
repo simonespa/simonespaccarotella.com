@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: The SimoneSpaccarotella Amplify app (simonespaccarotella.com)
+
+Parameters:
+  GitHubOauthToken:
+    Type: String
+    Description: The GitHub access token
+    NoEcho: true
+
+Resources:
+  App:
+    Type: AWS::Amplify::App
+    Properties:
+      Name: SimoneSpaccarotellaAmplifyApp
+      Description: My personal web log
+      AutoBranchCreationConfig:
+        EnableAutoBranchCreation: true
+        EnableAutoBuild: true
+        EnablePullRequestPreview: true
+      EnableBranchAutoDeletion: true
+      EnvironmentVariables:
+        - Name: NEXT_TELEMETRY_DISABLED
+          Value: 1
+      Repository: https://github.com/simonespa/simonespaccarotella.com
+      OauthToken: !Ref GitHubOauthToken
+      IAMServiceRole: !ImportValue SimoneSpaccarotellaAmplify-Role-RoleARN
+      Tags:
+        - Key: project
+          Value: SimoneSpaccarotellaAmplify
+
+  Branch:
+    Type: AWS::Amplify::Branch
+    Properties:
+      BranchName: main
+      AppId: !GetAtt App.AppId
+      Description: Main branch
+      EnableAutoBuild: true
+      Tags:
+        - Key: project
+          Value: SimoneSpaccarotellaAmplify
