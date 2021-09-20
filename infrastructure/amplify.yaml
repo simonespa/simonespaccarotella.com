@@ -19,6 +19,9 @@ Resources:
         EnableAutoBuild: true
         EnablePullRequestPreview: true
       EnableBranchAutoDeletion: true
+      EnvironmentVariables:
+        - Name: NEXT_TELEMETRY_DISABLED
+          Value: 1
       Repository: https://github.com/simonespa/simonespaccarotella.com
       OauthToken: !Ref GitHubOauthToken
       IAMServiceRole: !ImportValue SimoneSpaccarotellaAmplify-Role-RoleARN
