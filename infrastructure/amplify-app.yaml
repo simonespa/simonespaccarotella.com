@@ -12,8 +12,8 @@ Resources:
   App:
     Type: AWS::Amplify::App
     Properties:
-      Name: SimoneSpaccarotellaAmplifyApp
-      Description: My personal web log
+      Name: SimoneSpaccarotellaAmplify
+      Description: My personal website
       AutoBranchCreationConfig:
         EnableAutoBranchCreation: true
         EnableAutoBuild: true
@@ -39,3 +39,16 @@ Resources:
       Tags:
         - Key: project
           Value: SimoneSpaccarotellaAmplify
+
+  Domain:
+    Type: AWS::Amplify::Domain
+    Properties:
+      AppId: !GetAtt App.AppId
+      AutoSubDomainCreationPatterns: '*'
+      AutoSubDomainIAMRole: !ImportValue SimoneSpaccarotellaAmplify-Role-RoleARN
+      DomainName: simonespaccarotella.com
+      EnableAutoSubDomain: true
+      SubDomainSettings:
+        - BranchName: main
+          Prefix: www
+    DependsOn: Branch
