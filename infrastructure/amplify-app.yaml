@@ -12,7 +12,7 @@ Resources:
   App:
     Type: AWS::Amplify::App
     Properties:
-      Name: SimoneSpaccarotellaAmplify
+      Name: SimoneSpaccarotella
       Description: My personal website
       AutoBranchCreationConfig:
         EnableAutoBranchCreation: true
@@ -24,10 +24,7 @@ Resources:
           Value: 1
       Repository: https://github.com/simonespa/simonespaccarotella.com
       OauthToken: !Ref GitHubOauthToken
-      IAMServiceRole: !ImportValue SimoneSpaccarotellaAmplify-Role-RoleARN
-      Tags:
-        - Key: project
-          Value: SimoneSpaccarotellaAmplify
+      IAMServiceRole: !ImportValue SimoneSpaccarotella-AmplifyRole-RoleARN
 
   Branch:
     Type: AWS::Amplify::Branch
@@ -36,16 +33,12 @@ Resources:
       AppId: !GetAtt App.AppId
       Description: Main branch
       EnableAutoBuild: true
-      Tags:
-        - Key: project
-          Value: SimoneSpaccarotellaAmplify
 
   Domain:
     Type: AWS::Amplify::Domain
     Properties:
       AppId: !GetAtt App.AppId
-      AutoSubDomainCreationPatterns: '*'
-      AutoSubDomainIAMRole: !ImportValue SimoneSpaccarotellaAmplify-Role-RoleARN
+      AutoSubDomainIAMRole: !ImportValue SimoneSpaccarotella-AmplifyRole-RoleARN
       DomainName: simonespaccarotella.com
       EnableAutoSubDomain: true
       SubDomainSettings:
