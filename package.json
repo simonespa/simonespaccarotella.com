@@ -5,7 +5,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "browserslist:update-db": "npx browserslist@latest --update-db",
+    "browserslist:list": "npx browserslist@latest"
   },
   "dependencies": {
     "@next/font": "13.0.7",
