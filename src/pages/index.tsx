@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Simone Spaccarotella Portfolio</title>
+        <title>Simone Spaccarotella 👷 Software and digital content creator</title>
         <meta name="description" content="Simone Spaccarotella, software engineer team lead for BBC Sounds, musician for passion" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
