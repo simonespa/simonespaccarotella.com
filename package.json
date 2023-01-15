@@ -1,14 +1,30 @@
 {
   "name": "simonespaccarotella.com",
   "version": "0.1.1",
-  "description": "",
-  "author":
-  {
-    "name" : "Simone Spaccarotella",
-    "email" : "spa.simone@gmail.com",
-    "url" : "https://www.linkedin.com/in/simonespaccarotella"
+  "description": "My personal website",
+  "keywords": [
+    "nextjs",
+    "react",
+    "typescript",
+    "vercel",
+    "google",
+    "google-analytics",
+    "google-search-console"
+  ],
+  "author": {
+    "name": "Simone Spaccarotella",
+    "email": "spa.simone@gmail.com",
+    "url": "https://www.linkedin.com/in/simonespaccarotella"
   },
   "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonespa/simonespaccarotella.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/simonespa/simonespaccarotella.com/issues"
+  },
+  "homepage": "https://github.com/simonespa/simonespaccarotella.com#readme",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
