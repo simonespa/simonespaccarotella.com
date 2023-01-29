@@ -1,6 +1,12 @@
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import Script from 'next/script';
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import Script from "next/script";
+
+declare global {
+  interface Window {
+    dataLayer: any;
+  }
+}
 
 export default function App({ Component, pageProps }: AppProps) {
   // https://nextjs.org/docs/messages/next-script-for-ga
@@ -9,19 +15,16 @@ export default function App({ Component, pageProps }: AppProps) {
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-HSRHBVMXN0"
         strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy='afterInteractive'>
-        {`
-          <!-- Google tag (gtag.js) -->
+        onLoad={() => {
           window.dataLayer = window.dataLayer || [];
-          function gtag(){
-            dataLayer.push(arguments);
+          function gtag(...args: any[]) {
+            window.dataLayer.push(args);
           }
-          gtag('js', new Date());
-          gtag('config', 'G-HSRHBVMXN0');
-        `}
-      </Script>
+          gtag("js", new Date());
+          gtag("config", "G-HSRHBVMXN0");
+        }}
+      />
       <Component {...pageProps} />
     </>
-  )
+  );
 }
