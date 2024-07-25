@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import Script from "next/script";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,8 +14,11 @@ export default function Home() {
         <meta name="description" content="Simone Spaccarotella, software engineer team lead for BBC Sounds, musician for passion" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
       </Head>
+      <Script
+        src="https://platform.linkedin.com/badges/js/profile.js"
+        strategy="afterInteractive"
+      />
       <main className={styles.main}>
         <div className={styles.description}>
           <div>
