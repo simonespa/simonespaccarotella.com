@@ -1,4 +1,4 @@
-name: "Project Validation"
+name: "Nodejs Validation"
 
 permissions:
   contents: read
